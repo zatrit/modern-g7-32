@@ -61,6 +61,9 @@
   federal: none,
   manager: (position: none, name: none, title: none),
   performer: none,
+  title-footer-align: center,
+  city: none,
+  year: auto,
 ) = {
   per-line(
     force-indent: true,
@@ -122,4 +125,6 @@
   }
 
   v(0.5fr)
+
+  align(title-footer-align)[#city #year]
 }

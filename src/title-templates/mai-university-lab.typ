@@ -83,6 +83,9 @@
   stage: none,
   manager: (position: none, name: none),
   performer: none,
+  title-footer-align: center,
+  city: none,
+  year: auto,
 ) = {
   grid(
     columns: (0.2fr, 1fr),
@@ -164,4 +167,6 @@
   }
 
   v(0.5fr)
+
+  align(title-footer-align)[#city #year]
 }

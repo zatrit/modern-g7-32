@@ -61,7 +61,9 @@
   subject: none,
   stage: none,
   manager: (position: none, name: none),
+  title-footer-align: center,
   city: none,
+  year: auto,
 ) = {
   per-line(
     indent: 0pt,
@@ -126,4 +128,6 @@
   }
 
   v(1fr)
+
+  align(title-footer-align)[#city #year]
 }

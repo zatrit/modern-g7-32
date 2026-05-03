@@ -4,14 +4,11 @@
 #import "constants.typ": *
 
 #let gost-style(
-  year,
-  city,
   hide-title,
   text-size,
   small-text-size,
   indent,
   margin,
-  title-footer-align,
   pagination-align,
   add-pagebreaks,
   body,
@@ -86,9 +83,7 @@
   set enum(indent: indent, spacing: default-enum-spacing)
 
   set page(footer: context {
-    if counter(page).get() == (1,) and not hide-title {
-      align(title-footer-align)[#city #year]
-    } else {
+    if counter(page).get() != (1,) or hide-title {
       align(pagination-align)[#counter(page).display()]
     }
   })

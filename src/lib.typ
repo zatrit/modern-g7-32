@@ -8,7 +8,6 @@
 #let gost-common(
   title-template,
   title-arguments,
-  city,
   year,
   hide-title,
   performers,
@@ -45,7 +44,6 @@
   title-footer-align: center,
   pagination-align: center,
   add-pagebreaks: true,
-  city: none,
   year: auto,
   hide-title: false,
   performers: none,
@@ -74,14 +72,11 @@
   text-size = fetch-field(text-size, ("default*", "small"))
 
   show: gost-style.with(
-    year,
-    city,
     hide-title,
     text-size.default,
     text-size.small,
     indent,
     margin,
-    title-footer-align,
     pagination-align,
     add-pagebreaks,
   )
@@ -89,7 +84,6 @@
   gost-common(
     title-template,
     title-arguments,
-    city,
     year,
     hide-title,
     performers,
