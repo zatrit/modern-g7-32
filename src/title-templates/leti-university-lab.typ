@@ -76,12 +76,12 @@
 
   v(0.75fr)
 
-  if manager.name != none {
-    sign-field(name: manager.at("name"), title: manager.at("title"))
-  }
-
   if performer != none {
     sign-field(name: performer.at("name"), title: performer.at("title"))
+  }
+
+  if manager.name != none {
+    sign-field(name: manager.at("name"), title: manager.at("title"))
   }
 
   linebreak()
