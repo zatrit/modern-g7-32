@@ -10,11 +10,19 @@
     hint: "руководителя",
   )
 
-  args.performer = fetch-field(
-    args.at("performer", default: none),
-    ("title*", "name*"),
-    hint: "исполнителя",
-  )
+  let raw-performers = args.at("performers", default: args.at("performer", default: none))
+  if raw-performers != none {
+    if type(raw-performers) != array {
+      raw-performers = (raw-performers,)
+    }
+    args.performers = raw-performers.map(p => fetch-field(
+      p,
+      ("title*", "name*"),
+      hint: "исполнителя",
+    ))
+  } else {
+    args.performers = ()
+  }
 
   return args
 }
@@ -35,7 +43,8 @@
   ministry: "МИНОБРНАУКИ РОССИИ",
   organization: "Санкт-Петербургский государственный электротехнический университет «ЛЭТИ» им. В.И. Ульянова (Ленина)",
   department: none,
-  performer: (title: none, name: none),
+  performer: none,
+  performers: (),
   report-type: "Отчёт",
   about: none,
   discipline: none,
@@ -76,8 +85,16 @@
 
   v(0.75fr)
 
-  if performer != none {
-    sign-field(name: performer.at("name"), title: performer.at("title"))
+  let all-performers = if performers.len() > 0 {
+    performers
+  } else if performer != none {
+    (performer,)
+  } else {
+    ()
+  }
+
+  for p in all-performers {
+    sign-field(name: p.at("name", default: none), title: p.at("title", default: none))
   }
 
   if manager.name != none {
