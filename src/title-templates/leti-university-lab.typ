@@ -54,6 +54,7 @@
   title-footer-align: center,
   city: none,
   year: auto,
+  show-performers-page: false,
 ) = {
   set text(weight: "bold")
 

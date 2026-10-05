@@ -19,21 +19,19 @@
 
   title-arguments.insert("year", year)
 
-  let show-performers-page = false
+  let show-performers-page = force-performers
+  
   if performers != none {
-    performers = fetch-performers(performers)
-    if (performers.len() > 1 or force-performers) {
-      show-performers-page = true
-    } else {
-      title-arguments.insert("performer", performers.first())
-    }
+    title-arguments.insert("performers", performers)
   }
 
   if not hide-title {
     title-template(..title-arguments)
   }
 
-  if show-performers-page { performers-page(performers) }
+  if show-performers-page { 
+    performers-page(performers) 
+  }
 }
 
 #let gost(
